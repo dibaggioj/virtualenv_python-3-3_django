@@ -45,4 +45,3 @@ def vote(request, question_id):
 		selected_choice.save()
 		return HttpResponseRedirect(reverse('polls:results', args=(p.id,))) # Redirect to results page. Unlike HttpResponse, HttpResponseRedirect takes a single argument: the URL to which the user will be redirected (see the following point for how we construct the URL in this case). Using the reverse() function helps avoid hacing to hardcode a URL in the view function; it is given the name of the view we want to pass control to and the variable portion of the URL pattern that points to the view Original: return HttpResponse("You're voting on question %s." % question_id)
 		# Always return an HttpResponseRedirect after successfully dealing with Post data. This prevents data from being posted twice if a user his the Back button
-
