@@ -14,7 +14,8 @@ class Question(models.Model):
 	def __str__(self):	# __unicode__ on Python 2
 		return self.question_text # this method will allow us to print out objects in shell
 	def was_published_recently(self):
-		return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+		now = timezone.now()
+		return now - datetime.timedelta(days=1) <= self.pub_date <= now # recent pub_date must be between a day ago and now
 	was_published_recently.admin_order_field = 'pub_date' # add support for sorting the output of the was_published_recently column in the Admin/Polls/Questions page
 	was_published_recently.boolean = True # adds the check or minus icon for true or false in the was_published_recently column
 	was_published_recently.short_description = 'Published recently?"' # replaces the default column header from 'was_published_recently'
