@@ -15,6 +15,9 @@ class Question(models.Model):
 		return self.question_text # this method will allow us to print out objects in shell
 	def was_published_recently(self):
 		return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+	was_published_recently.admin_order_field = 'pub_date' # add support for sorting the output of the was_published_recently column in the Admin/Polls/Questions page
+	was_published_recently.boolean = True # adds the check or minus icon for true or false in the was_published_recently column
+	was_published_recently.short_description = 'Published recently?"' # replaces the default column header from 'was_published_recently'
 
 # Choice model, which contains two fields: the text of the choice and a vote tally
 class Choice(models.Model):
@@ -22,7 +25,9 @@ class Choice(models.Model):
 	choice_text = models.CharField(max_length=200)
 	votes = models.IntegerField(default=0)
 	def __str__(self):	# __unicode__ on Python 2
-		return self.choice_text
+		results = "choice-%s; votes-%s" % (str(self.choice_text), str(self.votes))
+		return results
+		#return self.choice_text
 
 # Each of model is represented by a class that subclasses django.db.models.Model
 # Each model has a number of class variables, each of which represents a database field in the model.
