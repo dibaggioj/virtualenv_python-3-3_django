@@ -1,0 +1,6 @@
+<h1>{{ question.question_text }}</h1>
+<ul>
+{% for choice in question.choice_set.all %} <!-- question.choice_set.all is interpeted as Python code question.choice_set.all() which returns an iterable of Choice objects. The choice_set attribute is from the django api for linked the the related model (Choice) to the model that defines the relationship (Question)-->
+	<li>{{ choice.choice_text }}</li>
+{% endfor %}
+</ul>
