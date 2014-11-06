@@ -1,3 +1,7 @@
+{% load staticfiles %} <!-- load static template tage from the staticfiles template library -->
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" /> <!--  static  template tag generates the absolute URL of the static file -->
+
 <h1>{{ question.question_text }}</h1>
 
 {% if error_message %}<p style="color:red"><strong>{{ error_message }}</strong></p>{% endif %}
