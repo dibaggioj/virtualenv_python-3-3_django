@@ -126,6 +126,12 @@ LOGIN_REDIRECT_URL = '/'
 SOCIAL_AUTH_FACEBOOK_KEY = '971893029491183'
 SOCIAL_AUTH_FACEBOOK_SECRET = 'dca8b103143268e2c77f350676411f94'
 
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '456216769390-l9vu8l3qt4rdlhboormicbpfl0mlbgob.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'aUzdi9Ee-fEkm2bZTbnueMWp'
+
+SOCIAL_AUTH_TWITTER_KEY = 'gx2xgivu40KRedMqLis8R5FSA'
+SOCIAL_AUTH_TWITTER_SECRET = 'gvFo077HELXaXvXole5sSrkhZhNYto2yHFY8duLUSlxYPNLbUJ'
+
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')] # mysite project templates
 #TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'polls/templates')] # pools application templates
 
