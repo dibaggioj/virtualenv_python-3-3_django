@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'social.apps.django_app.default',
     'polls',
+    'mysite',
     # 'debug_toolbar',
 )
 
@@ -121,6 +122,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/'
+
+SOCIAL_AUTH_FACEBOOK_KEY = '971893029491183'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'dca8b103143268e2c77f350676411f94'
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')] # mysite project templates
 #TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'polls/templates')] # pools application templates

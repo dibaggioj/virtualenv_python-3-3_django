@@ -1,0 +1,55 @@
+ /* polls/style.css
+ ======================================================================= */
+h1 {
+	font-family: Open Sans, Helvetica, Trebuchet MS, Arial, sans-serif;
+	font-size: 28px;
+	color: #505050;
+}
+
+h2 {
+    font-family: Open Sans, Helvetica, Trebuchet MS, Arial, sans-serif;
+    font-size: 22px;
+	color: #505050;
+}
+
+body {
+	background: rgba(223, 223, 223, 1.0) url("images/background.png") no-repeat right bottom;
+	margin: 10px auto 20px 20px;
+}
+
+ul {
+	font-family: Open Sans, Helvetica, Trebuchet MS, Arial, sans-serif;
+	font-size: 16px;
+	list-style-type: none; /* remove ul bullet points */
+	margin-left: -32px;
+}
+a {
+  text-decoration: none; /* remove link underlines, etc */
+}
+a:link { /* unvisited link - blue */
+    color: #6600FF;
+}
+a:visited { /* visited link - purple */
+    color: #800080;
+}
+a:hover { /* mouse over link - green */
+    color: #00FF00;
+}
+a:active { /* selected link - red */
+    color: #FF0000;
+}
+
+label {
+	font-family: Open Sans, Helvetica, Trebuchet MS, Arial, sans-serif;
+	color: #323233;
+	font-size: 16px;
+}
+
+body {
+  position: relative;
+  padding-top: 50px;
+  margin: 0;
+  min-height: 100%;
+}
+
+

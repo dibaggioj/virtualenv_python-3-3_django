@@ -20,13 +20,6 @@ class IndexView(generic.ListView):
     template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
 
-    def index(request):
-        context = RequestContext(request,
-                           {'request': request,
-                            'user': request.user})
-        return render_to_response('thirdauth/home.html',
-                             context_instance=context)
-
     def get_queryset(self):
         """
         Return the last five published questions.

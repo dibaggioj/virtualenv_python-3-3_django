@@ -1,12 +1,13 @@
-{% extends 'polls/base.html' %}
+{#{% extends '../../templates/mysite/base.html' %}#}
 
-{% load staticfiles %} <!-- load static template tage from the staticfiles template library -->
+{% load staticfiles %} <!-- load static template page from the staticfiles template library -->
 
 <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" /> <!--  static  template tag generates the absolute URL of the static file -->
+<link rel="icon" type="image/png" href="../../static/polls/images/favicon.png">
 
 {% block main %}
  <div>
- <h1>Polls App with Third-Party Authentication</h1>
+ <h1>Polls App</h1>
 
  <p>
    <ul>
