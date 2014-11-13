@@ -7,6 +7,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'mysite.views.home', name='home'),
     url(r'^polls/', include('polls.urls', namespace="polls")), # namespace each app in a project
     url(r'^admin/', include(admin.site.urls)),
+    url('', include('social.apps.django_app.urls', namespace='social')),
 )
 
 # The url() function is passed four arguments, two required: regex and view, and two optional: kwargs, and name.
