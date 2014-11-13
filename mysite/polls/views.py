@@ -15,14 +15,16 @@ from polls.models import Choice, Question
 # Using two generic views: ListView and DetailView, to display a list of objects and display a detail page for a
 # particular type of object respectively
 
+
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
 
     def index(request):
         context = RequestContext(request,
-                           {'user': request.user})
-        return render_to_response('polls/index.html',
+                           {'request': request,
+                            'user': request.user})
+        return render_to_response('thirdauth/home.html',
                              context_instance=context)
 
     def get_queryset(self):

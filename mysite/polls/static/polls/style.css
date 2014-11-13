@@ -2,12 +2,14 @@
  ======================================================================= */
 h1 {
 	font-family: Open Sans, Helvetica, Trebuchet MS, Arial, sans-serif;
-	font-size: 30px;
+	font-size: 28px;
 	color: #505050;
 }
 
 h2 {
     font-family: Open Sans, Helvetica, Trebuchet MS, Arial, sans-serif;
+    font-size: 22px;
+	color: #505050;
 }
 
 body {
