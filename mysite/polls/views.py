@@ -5,22 +5,32 @@ from django.core.urlresolvers import reverse
 from django.utils import timezone
 from django.views import generic
 #from django.template import RequestContext, loader
+from django.shortcuts import render_to_response
+from django.template.context import RequestContext
 
 from polls.models import Choice, Question
 
 # Create your views here.
 
-#Using two generic views: ListView and DetailView, to “display a list of objects” and “display a detail page for a particular type of object” respectively
+# Using two generic views: ListView and DetailView, to display a list of objects and display a detail page for a
+# particular type of object respectively
 
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
 
+    def index(request):
+        context = RequestContext(request,
+                           {'user': request.user})
+        return render_to_response('polls/index.html',
+                             context_instance=context)
+
     def get_queryset(self):
         """
         Return the last five published questions.
         """
-        return Question.objects.filter( # returns a queryset containing Questions whose pub_date is less than or equal to - that is, earlier than or equal to - timezone.now
+        return Question.objects.filter( # returns a queryset containing Questions whose pub_date is less than or equal
+        # to - that is, earlier than or equal to - timezone.now
         	pub_date__lte=timezone.now()
         ).order_by('-pub_date')[:5]
 
