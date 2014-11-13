@@ -1,15 +1,22 @@
-{% load staticfiles %} <!-- load static template page from the staticfiles template library -->
+{% extends 'polls/base.html' %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" /> <!--  static  template tag generates the absolute URL of the static file -->
+{#{% load staticfiles %} #}
+<!-- load static template page from the staticfiles template library -->
+
+{#<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" /> #}
+<!--  static  template tag generates the absolute URL of the static file -->
+
+{% block main %}
 
 <h1>{{ question.question_text }}</h1>
 
 <ul>
-	
 {% for choice in question.choice_set.all %}
 	<li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
 {% endfor %}
 </ul>
 
 <button><a href="{% url 'polls:detail' question.id %}">Vote again?</a></button>
+
+{% endblock %}
 

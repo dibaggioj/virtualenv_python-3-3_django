@@ -1,6 +1,12 @@
-{% load staticfiles %} <!-- load static template page from the staticfiles template library -->
+{% extends 'polls/base.html' %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" /> <!--  static  template tag generates the absolute URL of the static file -->
+{#{% load staticfiles %} #}
+<!-- load static template page from the staticfiles template library -->
+
+{#<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" /> #}
+<!--  static  template tag generates the absolute URL of the static file -->
+
+{% block main %}
 
 <h1>{{ question.question_text }}</h1>
 
@@ -14,3 +20,5 @@
 {% endfor %}
 <input type="submit" value="Vote" />
 </form>
+
+{% endblock %}
