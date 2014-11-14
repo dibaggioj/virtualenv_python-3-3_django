@@ -4,7 +4,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', 'mysite.views.home', name='home'),
-    url(r'^contact/', 'mysite.views.contact', name='contact'),
+    url(r'^contact/', 'contact.views.contact', name='contact'),
     url(r'^polls/', include('polls.urls', namespace="polls")),  # namespace each app in a project
     url(r'^admin/', include(admin.site.urls)),
     url('', include('social.apps.django_app.urls', namespace='social')),
