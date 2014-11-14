@@ -8,27 +8,43 @@ from django.utils import timezone
 # Create your models here.
 
 # Question model, which contains a quesiton and a publication date
+
+
 class Question(models.Model):
-	question_text = models.CharField(max_length=200)
-	pub_date = models.DateTimeField('date published')
-	def __str__(self):	# __unicode__ on Python 2
-		return self.question_text # this method will allow us to print out objects in shell
-	def was_published_recently(self):
-		now = timezone.now()
-		return now - datetime.timedelta(days=1) <= self.pub_date <= now # recent pub_date must be between a day ago and now
-	was_published_recently.admin_order_field = 'pub_date' # add support for sorting the output of the was_published_recently column in the Admin/Polls/Questions page
-	was_published_recently.boolean = True # adds the check or minus icon for true or false in the was_published_recently column
-	was_published_recently.short_description = 'Published recently?"' # replaces the default column header from 'was_published_recently'
+    question_text = models.CharField(max_length=200)
+    pub_date = models.DateTimeField('date published')
+
+    def __str__(self):	# __unicode__ on Python 2
+        return self.question_text # this method will allow us to print out objects in shell
+
+    def was_published_recently(self):
+        now = timezone.now()
+        return now - datetime.timedelta(days=1) <= self.pub_date <= now # recent pub_date must be between a day ago and now
+
+    was_published_recently.admin_order_field = 'pub_date' # add support for sorting the output of the was_published_recently column in the Admin/Polls/Questions page
+    was_published_recently.boolean = True # adds the check or minus icon for true or false in the was_published_recently column
+    was_published_recently.short_description = 'Published recently?"' # replaces the default column header from 'was_published_recently'
+
 
 # Choice model, which contains two fields: the text of the choice and a vote tally
 class Choice(models.Model):
-	question = models.ForeignKey(Question)
-	choice_text = models.CharField(max_length=200)
-	votes = models.IntegerField(default=0)
-	def __str__(self):	# __unicode__ on Python 2
-		results = "choice-%s; votes-%s" % (str(self.choice_text), str(self.votes))
-		return results
-		#return self.choice_text
+    question = models.ForeignKey(Question)
+    choice_text = models.CharField(max_length=200)
+    votes = models.IntegerField(default=0)
+
+    def __str__(self):	 # __unicode__ on Python 2
+        results = "choice-%s; votes-%s" % (str(self.choice_text), str(self.votes))
+        return results
+        #return self.choice_text
+
+
+# User model
+class User(models.Model):
+    first_name = models.CharField(max_length=25)
+    last_name = models.CharField(max_length=25)
+    def __str__(self):
+        pass
+
 
 # Each of model is represented by a class that subclasses django.db.models.Model
 # Each model has a number of class variables, each of which represents a database field in the model.
