@@ -1,0 +1,33 @@
+<head>
+    <title>Contact us</title>
+</head>
+
+{% extends 'mysite/home.html' %}
+
+{% block main %}
+    <h1>Contact Us</h1>
+    <h2>We'd love to hear from you!</h2>
+
+    {% if errors %}
+        <ul>
+            {%  for error in errors %}
+            <li>{{ error }}</li>
+            {%  endfor %}
+        </ul>
+    {%  endif %}
+
+    <form action="/contact/" method="post">
+        <p>Subject: <input type="text" name="subject"></p>
+        <p>Your e-mail (optional): <input type=""text" name="email"></p>
+        <p>Message: <textarea name="message" rows="10" cols="50"></textarea></p>
+        <input type="submit" value="Submit" class="btn btn-default">
+    </form>
+{% endblock %}
+
+{#<script>#}
+{#    $(document).ready(function(){#}
+{#        $('#navContact').addClass('active');#}
+{#    });#}
+{#    $("#navHome").attr('class', '');#}
+{#    $("#navContact").addClass('active');#}
+{#</script>#}

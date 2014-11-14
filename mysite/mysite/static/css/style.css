@@ -1,4 +1,4 @@
- /* mysite/static/css/style.css
+ /* mysite/css/style.css
  ======================================================================= */
 
 body {
@@ -50,6 +50,16 @@ a:hover { /* mouse over link - green */
 a:active { /* selected link - red */
     color: #FF0000;
 }
+
+/* Button styles
+================================================================== */
+.btn {
+    border-radius: 1px;
+}
+/*.btn-success:hover {*/
+    /*background: #808080;*/
+    /*border-color: #808080;*/
+/*}*/
 
 
 

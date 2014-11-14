@@ -40,16 +40,30 @@ a {
 }
 a:link { /* unvisited link - blue */
     color: #6600FF;
+    text-decoration: none;
 }
 a:visited { /* visited link - purple */
     color: #800080;
+    text-decoration: none;
 }
-a:hover { /* mouse over link - green */
-    color: #00FF00;
+a:hover { /* mouse over link - orange */
+    color: #F48E40;
+    text-decoration: none;
 }
 a:active { /* selected link - red */
     color: #FF0000;
+    text-decoration: none;
 }
+
+/* Button styles
+================================================================== */
+.btn {
+    border-radius: 1px;
+}
+/*.btn-success:hover {*/
+    /*background: #808080;*/
+    /*border-color: #808080;*/
+/*}*/
 
 
 

@@ -1,3 +1,7 @@
+<head>
+    <title>Polls</title>
+</head>
+
 {% extends 'polls/base.html' %}
 
 {#{% load staticfiles %}#}
@@ -19,6 +23,12 @@
     {% else %}
         <p>No polls are available.</p>
     {% endif %}
+
+    <form action="/question/" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit" />
+    </form>
 {#</div>#}
 
 {% endblock %}
