@@ -1,8 +1,4 @@
-#from django.conf.urls import patterns, url
-from django.conf.urls import patterns, include, url
-from django.contrib import admin
-
-admin.autodiscover()
+from django.conf.urls import patterns, url
 
 from polls import views
 
@@ -13,6 +9,4 @@ urlpatterns = patterns('',
     url(r'^(?P<question_id>\d+)/vote/$', views.vote, name='vote'), # ex: /polls/5/vote/
     url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}, name='auth_logout'),
     url(r'^logout/(?P<next_page>.*)/$', 'django.contrib.auth.views.logout', name='auth_logout_next'),
-    url('', include('social.apps.django_app.urls', namespace='social')),
-    url('', include('django.contrib.auth.urls', namespace='auth')),
 )

@@ -1,20 +1,24 @@
 {% extends 'polls/base.html' %}
 
-{% load staticfiles %} <!-- load static template page from the staticfiles template library -->
+{#{% load staticfiles %}#}
+<!-- load static template page from the staticfiles template library -->
 
-<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" /> <!--  static  template tag generates the absolute URL of the static file -->
+{#<link rel="stylesheet" type="text/css" href="{% static '/../../static/polls/css/style.css' %}" />#}
+<!--  static  template tag generates the absolute URL of the static file -->
 
 {% block main %}
 
-<h2>Poll Questions</h2>
-{% if latest_question_list %}
-    <ul>
-    {% for question in latest_question_list %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li> <!-- create a bulleted-list containing of the questions, where each question's link points to the question's detail page. This uses a namespace and is not hardcoded -->
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No polls are available.</p>
-{% endif %}
+{#<div class="main-content">#}
+    <h2>Poll Questions</h2>
+    {% if latest_question_list %}
+        <ul>
+        {% for question in latest_question_list %}
+            <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li> <!-- create a bulleted-list containing of the questions, where each question's link points to the question's detail page. This uses a namespace and is not hardcoded -->
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
+{#</div>#}
 
 {% endblock %}

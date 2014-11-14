@@ -8,11 +8,11 @@
 
 {% block main %}
 
-<h1>{{ question.question_text }}</h1>
+<h2>{{ question.question_text }}</h2>
 
 {% if error_message %}<p style="color:red"><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action="{% url 'polls:vote' question.id %}" method="post"> <!-- Set the form’s action to {% url 'polls:vote' question.id %}, and set method="post" (pposed to method="get"), because the act of submitting this form will alter data server-side -->
+<form action="{% url 'polls:vote' question.id %}" method="post"> <!-- Set the form’s action to ..., and set method="post" (pposed to method="get"), because the act of submitting this form will alter data server-side -->
 {% csrf_token %} <!-- django system for protecting against Cross Site Request Forgeries -->
 {% for choice in question.choice_set.all %} <!-- question.choice_set.all is interpeted as Python code question.choice_set.all() which returns an iterable of Choice objects. The choice_set attribute is from the django api for linked the the related model (Choice) to the model that defines the relationship (Question)-->
     <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" /> <!-- display a rdio button for each question choice, where the value of each radio button id the associated question choice's ID. The name of each radio button is "choice". That means, when somebody selects one of the radio buttons and submits the form, it’ll send the POST data choice=# where # is the ID of the selected choice. This is the basic concept of HTML forms. -->
