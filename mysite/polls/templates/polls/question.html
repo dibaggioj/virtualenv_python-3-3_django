@@ -1,0 +1,49 @@
+<head>
+    <title>Add a New Question</title>
+</head>
+
+{% extends 'polls/base.html' %}
+
+{#{% load staticfiles %}#}
+<!-- load static template page from the staticfiles template library -->
+
+{#<link rel="stylesheet" type="text/css" href="{% static '/../../static/polls/css/style.css' %}" />#}
+<!--  static  template tag generates the absolute URL of the static file -->
+
+{% block main %}
+
+<form action="" method="post">{% csrf_token %}
+    <div class="field">
+        {{ form.your_question.errors }}
+        <label for="id_your_question">Question:</label>
+        {{ form.your_question }}
+    </div>
+    <div class="field">
+        {{ form.your_answers.a.errors }}
+        <label for="id_your_answers.a">A:</label>
+        {{ form.your_answers.a }}
+    </div>
+    <div class="field">
+        {{ form.your_answers.b.errors }}
+        <label for="id_your_answers.b">A:</label>
+        {{ form.your_answers.b }}
+    </div>
+    <div class="field">
+        {{ form.your_answers.c.errors }}
+        <label for="id_your_answers.c">A:</label>
+        {{ form.your_answers.c }}
+    </div>
+    <div class="field">
+        {{ form.your_answers.d.errors }}
+        <label for="id_your_answers.d">A:</label>
+        {{ form.your_answers.d }}
+    </div>
+    <div class="field">
+        {{ form.your_answers.e.errors }}
+        <label for="id_your_answers.e">A:</label>
+        {{ form.your_answers.e }}
+    </div>
+    <input type="submit" value="Submit" class="btn btn-primary"/>
+</form>
+
+{% endblock %}

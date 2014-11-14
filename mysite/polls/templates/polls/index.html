@@ -12,7 +12,6 @@
 
 {% block main %}
 
-{#<div class="main-content">#}
     <h2>Poll Questions</h2>
     {% if latest_question_list %}
         <ul>
@@ -24,11 +23,6 @@
         <p>No polls are available.</p>
     {% endif %}
 
-    <form action="/question/" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Submit" />
-    </form>
-{#</div>#}
+    <a href="/polls/question" class="btn btn-primary" role="button">Add a New Poll Question</a>
 
 {% endblock %}

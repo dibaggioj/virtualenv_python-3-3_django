@@ -88,7 +88,8 @@ def get_question(request):
     else:
         form = QuestionForm()
 
-    return render(request, 'question.html', {'form': form})
+    return render(request, 'polls/question.html', {'form': form})
+
 
 
 
