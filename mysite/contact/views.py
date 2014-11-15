@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
 from django.template import RequestContext
 
+
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)

@@ -7,7 +7,7 @@ from django.db import models
 from django.utils import timezone
 # Create your models here.
 
-# Question model, which contains a quesiton and a publication date
+# Question model, which contains a question and a publication date
 
 
 class Question(models.Model):

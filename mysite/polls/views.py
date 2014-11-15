@@ -52,7 +52,9 @@ class ResultsView(generic.DetailView):
 def vote(request, question_id):
     p = get_object_or_404(Question, pk=question_id)
     try:
-        selected_choice = p.choice_set.get(pk=request.POST['choice']) # request.POST['choice'] returns the ID of the selected choice, as a string (note: request.POST values are always strings). Unlike request.GET (which also accesses GET data in the same way), request.POST alters data via a POST call
+        selected_choice = p.choice_set.get(pk=request.POST['choice']) # request.POST['choice'] returns the ID of the
+        # selected choice, as a string (note: request.POST values are always strings). Unlike request.GET (which also
+        # accesses GET data in the same way), request.POST alters data via a POST call
     except (KeyError, Choice.DoesNotExist):
         # Redisplay the question voting form.
         return render(request, 'polls/detail.html', {
@@ -79,10 +81,22 @@ def get_question(request):
         form = QuestionForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
+            question_body = request.POST.get('your_question', '')
+            new_question = Question(question_text=question_body, pub_date=timezone.now())
+            new_question.save()
+
+            characters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w',
+                          'x','y','z']
+            for i in range(0, 5):
+                answer_text = 'your_answer_' + characters[i]
+                new_answer = request.POST.get(answer_text, '')
+                if new_answer != '':
+                    new_choice = Choice(question=new_question, choice_text=new_answer, votes=0)
+                    new_choice.save()
             # process the data in form.cleansed_data as required
             # ...
             # redirect to a new URL:
-            return HttpResponseRedirect('/thanks/')
+            return HttpResponseRedirect('/polls/')
 
     # if a GET (or any other method) we'll create a blank form
     else:
