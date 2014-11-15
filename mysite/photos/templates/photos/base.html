@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,13 +9,12 @@
     <title>{% block title %}Mysite With Authentication{% endblock %}</title>
 
     <!-- Bootstrap -->
-    <link href="../../static/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../../static/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="../../static/photos/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../static/photos/css/bootstrap-theme.min.css" rel="stylesheet">
     {#   <link href="static/css/fbposter.css" rel="stylesheet">#}
 
-    <link href="../../static/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'photos/style.css' %}" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,800,700,300' rel='stylesheet' type='text/css'>
-    <link rel="icon" type="image/png" href="../../static/img/favicon.png">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,8 +24,8 @@
     <![endif]-->
 </head>
 <body>
-    	<!-- Navbar -->
-	<div class="navbar navbar-default navbar-fixed-top">
+    <!-- Navbar -->
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 	    <div class="container">
 	        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="icon-bar"></span>
@@ -34,8 +35,9 @@
             <a class="navbar-brand text-muted" href="/" title="Return home">My Site Home</a>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li id="navHome"><a href="/" title="Return home">Home</a></li>
-                    <li id="navPolls"><a href="/polls" title="Check out our polls">Polls</a></li>
+                    <li><a href="/" title="Return home"><span aria-hidden="true" data-icon="&#xe100;"></span>Home</a></li>
+                    <li><a href="/polls" title="Check out our polls">Polls</a></li>
+                    <!-- <span aria-hidden="true" data-icon="&#xe607;"></span> -->
                     <li class="dropdown" id="navPhotos">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Check out our photos uploader">Photos <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
@@ -43,7 +45,8 @@
                             <li><a href="/photos/listfiles">List Files</a></li>
                         </ul>
                     </li>
-                    <li id="navContact"><a href="/contact" title="Contact us">Contact</a></li>
+                    <li><a href="/contact" title="Contact us">Contact</a></li>
+                    <!-- <span aria-hidden="true" data-icon="&#xe620;"></span> -->
                     <li class="dropdown">
                     {% if user and not user.is_anonymous %}
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Account">{{ user.username }} <span class="caret"></span></a>
@@ -52,20 +55,21 @@
                                 <a>Hello {{ user.get_full_name|default:user.username }}!</a>
                             </li>
                             <li>
-                                <a href="{% url 'auth:logout' %}?next={{ request.path }}">Logout</a>
+                                <a href="{% url 'auth:logout' %}?next=/polls">Logout</a>
+{#                                <a href="{% url 'auth:logout' %}?next={{ request.path }}">Logout</a>#}
                             </li>
                         </ul>
                     {% else %}
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Login or Signup">Login <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Login with Facebook</a>
+                                    <a href="{% url 'social:begin' 'facebook' %}?next=/polls">Login with Facebook</a>
                                 </li>
                                 <li>
-                                    <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}">Login with Google</a>
+                                    <a href="{% url 'social:begin' 'google-oauth2' %}?next=/polls">Login with Google</a>
                                 </li>
                                 <li>
-                                    <a href="{% url 'social:begin' 'twitter' %}?next={{ request.path }}">Login with Twitter</a>
+                                    <a href="{% url 'social:begin' 'twitter' %}?next=/polls">Login with Twitter</a>
                                 </li>
                             </ul>
                     {% endif %}
@@ -73,18 +77,20 @@
                 </ul>
             </div>
         </div>
-	</div>
+	</nav>
 	<!-- End navbar -->
 
-    <!-- Main content -->
     <div class="main-content">
+        <header id="title">
+            <p>UPLOAD YOUR PICTURES</p>
+        </header>
+
         {% block main %}{% endblock %}
     </div>
-    <!-- End main content -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="../../static/js/jquery-1.11.1.min.js"></script>
+    <script src="../../static/photos/js/jquery-1.11.1.min.js"></script>
     {#   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>#}
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../../static/js/bootstrap.min.js"></script>
+    <script src="../../static/photos/js/bootstrap.min.js"></script>
 </body>
 </html>

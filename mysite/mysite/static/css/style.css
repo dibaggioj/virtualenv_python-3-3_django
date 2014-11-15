@@ -29,7 +29,7 @@ label {
 	color: #323233;
 	font-size: 16px;
 }
-ul {
+.main-content ul {
 	font-family: Open Sans, Helvetica, Trebuchet MS, Arial, sans-serif;
 	font-size: 16px;
 	list-style-type: none; /* remove ul bullet points */

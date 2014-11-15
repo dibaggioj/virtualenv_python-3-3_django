@@ -1,0 +1,21 @@
+{% extends 'photos/base.html' %}
+
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'photos/style.css' %}" />
+
+{% block main %}
+
+<section class="desc">
+    <p>A Django photo uploader app.</p>
+    <p>Upload your photos and see them on your screen!</p>
+</section>
+<section class="forms">
+    <form id="form" action="." method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <input class="buttons" type="submit" name="upload" value="upload">
+    </form>
+</section>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'photos/base.html' %}
+
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'photos/style.css' %}" />
+
+{% block main %}
+
+<section class="desc">
+   <p>You've just uploaded a photo!</p>
+</section>
+
+<section class="desc" id="links">
+   <a href="{% url 'photos:uploadphoto' %}">upload new photo</a>
+   </br>
+   <a href="{% url 'photos:displayphoto' %}">view gallery</a>
+</section>
+
+{% endblock %}
