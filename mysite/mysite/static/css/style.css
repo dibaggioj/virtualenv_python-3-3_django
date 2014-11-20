@@ -51,6 +51,7 @@ a:active { /* selected link - red */
     color: #FF0000;
 }
 
+
 /* Button styles
 ================================================================== */
 .btn {
@@ -60,6 +61,7 @@ a:active { /* selected link - red */
     /*background: #808080;*/
     /*border-color: #808080;*/
 /*}*/
+
 
 /* Form validation styles
 ================================================================== */

@@ -23,7 +23,7 @@
     <![endif]-->
 </head>
 <body>
-    	<!-- Navbar -->
+    <!-- Navbar -->
 	<div class="navbar navbar-default navbar-fixed-top">
 	    <div class="container">
 	        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -34,6 +34,8 @@
             <a class="navbar-brand text-muted" href="/" title="Return home">My Site Home</a>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
+                    {% if kwargs.page = "Create_Listing": <li id="navHome" class="active"><a href="/" title="Return home">Home</a></li> %}
+
                     <li id="navHome"><a href="/" title="Return home">Home</a></li>
                     <li id="navPolls"><a href="/polls" title="Check out our polls">Polls</a></li>
                     <li class="dropdown" id="navPhotos">
